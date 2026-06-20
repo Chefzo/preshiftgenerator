@@ -1,0 +1,20 @@
+[
+  {
+    "itemId": "m-branzino",
+    "name": "Whole roasted branzino",
+    "available": false,
+    "reason": "Fish delivery short — none until tomorrow"
+  },
+  {
+    "itemId": "m-burrata",
+    "name": "Burrata starter",
+    "available": false,
+    "reason": "Down to last two; 86 after they sell"
+  },
+  {
+    "itemId": "m-shortrib",
+    "name": "Braised short rib",
+    "available": true,
+    "reason": "Pushing — heavy stock and it pairs with the upsell"
+  }
+]
