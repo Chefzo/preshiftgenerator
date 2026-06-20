@@ -1,0 +1,94 @@
+[
+  {
+    "id": "g-anders",
+    "name": "Robert Anders",
+    "isRegular": true,
+    "visitCount": 23,
+    "lastVisitDate": "2026-06-06",
+    "lastVisitTicketMinutes": 22,
+    "lifetimeSpend": 8420,
+    "vip": false,
+    "allergies": [],
+    "preferences": ["Booth 12 if open", "Sparkling water, no ice"],
+    "source": "toast_crm"
+  },
+  {
+    "id": "g-okafor",
+    "name": "Ada Okafor",
+    "isRegular": true,
+    "visitCount": 41,
+    "lastVisitDate": "2026-06-13",
+    "lastVisitTicketMinutes": 14,
+    "lifetimeSpend": 15230,
+    "vip": true,
+    "allergies": ["shellfish"],
+    "preferences": ["Always orders the tasting menu", "Loves the sommelier's picks"],
+    "source": "toast_crm"
+  },
+  {
+    "id": "g-bauer",
+    "name": "Mara Bauer",
+    "isRegular": true,
+    "visitCount": 9,
+    "lastVisitDate": "2026-05-28",
+    "lastVisitTicketMinutes": 17,
+    "lifetimeSpend": 2110,
+    "vip": false,
+    "allergies": ["gluten"],
+    "preferences": ["Prefers the quiet back room"],
+    "source": "direct"
+  },
+  {
+    "id": "g-lindqvist",
+    "name": "Erik Lindqvist",
+    "isRegular": false,
+    "visitCount": 0,
+    "vip": false,
+    "allergies": [],
+    "preferences": [],
+    "source": "google"
+  },
+  {
+    "id": "g-mehta",
+    "name": "Priya Mehta",
+    "isRegular": false,
+    "visitCount": 0,
+    "vip": false,
+    "allergies": ["peanut"],
+    "preferences": [],
+    "source": "google"
+  },
+  {
+    "id": "g-flores",
+    "name": "Daniel Flores",
+    "isRegular": false,
+    "visitCount": 0,
+    "vip": false,
+    "allergies": [],
+    "preferences": [],
+    "source": "google"
+  },
+  {
+    "id": "g-whitlock",
+    "name": "Susan Whitlock",
+    "isRegular": true,
+    "visitCount": 6,
+    "lastVisitDate": "2026-06-01",
+    "lastVisitTicketMinutes": 12,
+    "lifetimeSpend": 1640,
+    "vip": false,
+    "allergies": [],
+    "preferences": ["Celebrates her anniversary here every June"],
+    "source": "toast_crm"
+  },
+  {
+    "id": "g-tanaka",
+    "name": "Kenji Tanaka",
+    "isRegular": false,
+    "visitCount": 0,
+    "vip": false,
+    "allergies": [],
+    "preferences": [],
+    "source": "google"
+  }
+]

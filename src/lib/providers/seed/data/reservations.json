@@ -1,0 +1,100 @@
+[
+  {
+    "id": "r-001",
+    "time": "17:30",
+    "partySize": 2,
+    "guestId": "g-whitlock",
+    "channel": "toast",
+    "status": "confirmed",
+    "tags": ["anniversary"],
+    "notes": "Anniversary — they come every June. A glass of bubbles on the house lands well."
+  },
+  {
+    "id": "r-002",
+    "time": "18:00",
+    "partySize": 4,
+    "guestId": "g-lindqvist",
+    "channel": "google",
+    "status": "booked",
+    "tags": [],
+    "notes": ""
+  },
+  {
+    "id": "r-003",
+    "time": "18:30",
+    "partySize": 2,
+    "guestId": "g-bauer",
+    "channel": "direct",
+    "status": "confirmed",
+    "tags": ["gluten-free"],
+    "notes": "Gluten allergy — flag the kitchen."
+  },
+  {
+    "id": "r-004",
+    "time": "19:00",
+    "partySize": 2,
+    "guestId": "g-anders",
+    "channel": "toast",
+    "status": "confirmed",
+    "tags": ["regular"],
+    "notes": "Regular. Last visit ticket ran long."
+  },
+  {
+    "id": "r-005",
+    "time": "19:00",
+    "partySize": 6,
+    "guestId": "g-okafor",
+    "channel": "toast",
+    "status": "confirmed",
+    "tags": ["VIP", "tasting-menu"],
+    "notes": "VIP, 41 visits. Shellfish allergy across the table — confirm with kitchen."
+  },
+  {
+    "id": "r-006",
+    "time": "19:00",
+    "partySize": 4,
+    "guestId": "g-mehta",
+    "channel": "google",
+    "status": "booked",
+    "tags": [],
+    "notes": "Peanut allergy noted at booking."
+  },
+  {
+    "id": "r-007",
+    "time": "19:30",
+    "partySize": 8,
+    "channel": "phone",
+    "status": "confirmed",
+    "tags": ["large-party", "birthday"],
+    "notes": "Birthday for the table — cake coming in at the back, candle at 20:45."
+  },
+  {
+    "id": "r-008",
+    "time": "19:30",
+    "partySize": 2,
+    "guestId": "g-flores",
+    "channel": "google",
+    "status": "booked",
+    "tags": [],
+    "notes": ""
+  },
+  {
+    "id": "r-009",
+    "time": "20:00",
+    "partySize": 2,
+    "guestId": "g-tanaka",
+    "channel": "google",
+    "status": "booked",
+    "tags": ["patio-requested"],
+    "notes": "Requested patio."
+  },
+  {
+    "id": "r-010",
+    "time": "20:30",
+    "partySize": 5,
+    "channel": "walkin",
+    "status": "booked",
+    "tags": [],
+    "notes": "Held from the waitlist."
+  }
+]
