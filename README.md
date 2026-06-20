@@ -59,7 +59,18 @@ for the narrative.
 | Toast | `TOAST_API_HOSTNAME`, `TOAST_CLIENT_ID`, `TOAST_CLIENT_SECRET`, `TOAST_RESTAURANT_GUID` |
 | Weather | `WEATHER_PROVIDER` = `nws` (free, default) \| `openweather`; `WEATHER_LAT/LON` |
 | Email | `RESEND_API_KEY`, `EMAIL_FROM`, `BRIEF_RECIPIENTS` |
-| Cron | `CRON_SECRET` |
+| Cron | `CRON_SECRET` (required — cron fails closed without it) |
+| Dashboard auth | `DASHBOARD_USER`, `DASHBOARD_PASSWORD` (set both to require login) |
+
+## Access control
+
+The dashboard and brief APIs expose guest PII (names, allergies, spend, visit
+history) and bill Claude on demand, so they're gated by **HTTP Basic auth**
+(`src/middleware.ts`): set `DASHBOARD_USER` + `DASHBOARD_PASSWORD` and every route
+requires those credentials. If they're unset the app stays open (so an initial demo
+keeps working) — **set them in production.** The cron route is excluded from Basic
+auth and instead authenticates with `CRON_SECRET` (which it now requires, failing
+closed with a 503 if unset).
 
 ## Integrations
 

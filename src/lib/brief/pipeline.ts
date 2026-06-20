@@ -4,10 +4,15 @@ import { generateBrief } from "./generateBrief";
 
 /**
  * End-to-end: assemble context for a date, generate the brief, return both.
- * A small in-memory cache (per date) keeps the dashboard and the email cron
- * from re-billing Claude for the same shift; `force` bypasses it (Regenerate).
+ *
+ * A small in-memory, TTL'd cache de-dupes Claude calls for repeated requests
+ * that land on the *same warm lambda instance*. On serverless this is a
+ * best-effort cost optimization only — separate instances (and the cron, which
+ * runs as its own function) won't share it. For guaranteed cross-request
+ * caching, back this with a shared store (e.g. Vercel KV). `force` bypasses it.
  */
-const cache = new Map<string, BriefResult>();
+const CACHE_TTL_MS = 10 * 60 * 1000;
+const cache = new Map<string, { at: number; result: BriefResult }>();
 
 export function todayIso(timeZone?: string): string {
   const fmt = new Intl.DateTimeFormat("en-CA", {
@@ -20,7 +25,10 @@ export function todayIso(timeZone?: string): string {
 }
 
 export async function buildBrief(date: string, force = false): Promise<BriefResult> {
-  if (!force && cache.has(date)) return cache.get(date)!;
+  if (!force) {
+    const hit = cache.get(date);
+    if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.result;
+  }
 
   const context = await assembleContext(date);
   const { brief, model } = await generateBrief(context);
@@ -31,12 +39,8 @@ export async function buildBrief(date: string, force = false): Promise<BriefResu
     generatedAt: new Date().toISOString(),
     model,
   };
-  cache.set(date, result);
+  cache.set(date, { at: Date.now(), result });
   return result;
-}
-
-export function clearBriefCache(): void {
-  cache.clear();
 }
 
 export interface DashboardBrief {
