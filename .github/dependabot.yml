@@ -1,0 +1,26 @@
+# Dependabot keeps dependencies patched so the next Next.js / SDK CVE shows up as
+# an automated PR instead of waiting on a manual bump (see PR #3, the manual
+# Next.js 15.5.19 security patch). Grouped to keep the PR volume low.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # Patch/minor bumps for everything land in one PR a week.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+    labels:
+      - dependencies
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - github-actions
