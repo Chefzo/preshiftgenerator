@@ -72,6 +72,26 @@ keeps working) — **set them in production.** The cron route is excluded from B
 auth and instead authenticates with `CRON_SECRET` (which it now requires, failing
 closed with a 503 if unset).
 
+## Data & privacy
+
+The brief is built from guest PII — names, allergies, lifetime spend, visit
+history — and that context is **sent to the Claude API** (Anthropic) on every
+generation to write the narrative. Two things follow from that:
+
+- **PII leaves your infrastructure.** Anthropic processes the prompt under its
+  API terms; review them against your guest-data obligations before pointing
+  this at a live res book. If a guest's data can't go to a third-party LLM,
+  don't include that guest's fields in the context (or run the pipeline with
+  `--no-ai`, which renders the data cards without calling Claude).
+- **Untrusted text is treated as data, not instructions.** Guest names, notes,
+  tags, allergies and 86 reasons are sanitized before they reach the prompt
+  (`src/lib/brief/sanitize.ts`): control/zero-width characters are stripped,
+  newlines collapsed, and known prompt-injection markers (role delimiters,
+  "ignore previous instructions", etc.) neutralized. The system prompt also
+  instructs the model to treat the supplied data as untrusted content. This
+  reduces — but does not eliminate — indirect prompt-injection risk; the model
+  output is still rendered to managers, never executed.
+
 ## Integrations
 
 - **Seed** (`src/lib/providers/seed/`) — a realistic, hand-built res book that exercises
